@@ -1,7 +1,146 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": false
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "velocity-ui": {
+      "projectType": "library",
+      "root": "projects/velocity-ui",
+      "sourceRoot": "projects/velocity-ui/src",
+      "prefix": "vui",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/velocity-ui/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/velocity-ui/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/velocity-ui/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/velocity-ui/src/test.ts",
+            "tsConfig": "projects/velocity-ui/tsconfig.spec.json",
+            "karmaConfig": "projects/velocity-ui/karma.conf.js"
+          }
+        }
+      }
+    },
+    "velocity-demo": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/velocity-demo",
+      "sourceRoot": "projects/velocity-demo/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/velocity-demo",
+            "index": "projects/velocity-demo/src/index.html",
+            "main": "projects/velocity-demo/src/main.ts",
+            "polyfills": "projects/velocity-demo/src/polyfills.ts",
+            "tsConfig": "projects/velocity-demo/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/velocity-demo/src/favicon.ico",
+              "projects/velocity-demo/src/assets"
+            ],
+            "styles": ["projects/velocity-demo/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/velocity-demo/src/environments/environment.ts",
+                  "with": "projects/velocity-demo/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "velocity-demo:build:production"
+            },
+            "development": {
+              "browserTarget": "velocity-demo:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "velocity-demo:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/velocity-demo/src/test.ts",
+            "polyfills": "projects/velocity-demo/src/polyfills.ts",
+            "tsConfig": "projects/velocity-demo/tsconfig.spec.json",
+            "karmaConfig": "projects/velocity-demo/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/velocity-demo/src/favicon.ico",
+              "projects/velocity-demo/src/assets"
+            ],
+            "styles": ["projects/velocity-demo/src/styles.scss"],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "velocity-ui"
 }

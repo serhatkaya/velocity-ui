@@ -1,0 +1,111 @@
+.toast {
+  position: fixed;
+  padding: 16px;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 14px;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+  z-index: 9999;
+
+  &.visible {
+    opacity: 1;
+  }
+
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  &-title {
+    font-weight: bold;
+    margin-right: 8px;
+  }
+
+  &-close-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 14px;
+  }
+
+  &-position {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-top-right {
+    top: 20px;
+    right: 20px;
+  }
+
+  &-top-left {
+    top: 20px;
+    left: 20px;
+  }
+
+  &-top-center {
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &-center-right {
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+  }
+
+  &-center-left {
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+  }
+
+  &-bottom-right {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  &-bottom-left {
+    bottom: 20px;
+    left: 20px;
+  }
+
+  &-bottom-center {
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &-center-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &-info {
+    background-color: $primary-color;
+  }
+
+  &-success {
+    background-color: $success-color;
+  }
+
+  &-warning {
+    background-color: $warning-color;
+  }
+
+  &-error {
+    background-color: $error-color;
+  }
+}

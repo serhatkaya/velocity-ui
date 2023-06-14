@@ -1,0 +1,31 @@
+.tab-container {
+  width: 100%;
+}
+
+.tab-header {
+  display: flex;
+  background-color: #f1f1f1;
+}
+
+.tab-item {
+  flex: 1;
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+  border-bottom: 2px solid transparent;
+}
+
+.tab-item.active {
+  border-bottom: 2px solid #333;
+  font-weight: bold;
+}
+
+.tab-content {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.tab-item.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

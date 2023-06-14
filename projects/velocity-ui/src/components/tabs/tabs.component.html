@@ -1,0 +1,18 @@
+<div class="tab-container">
+  <div class="tab-header">
+    <ng-container *ngFor="let tab of tabs; let i = index">
+      <div
+        class="tab-item"
+        [class.active]="currentTab === i"
+        [class.disabled]="tab.disabled"
+        (click)="!tab.disabled && changeTab(i)"
+      >
+        {{ tab.title }}
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="tab-content">
+    <ng-content></ng-content>
+  </div>
+</div>
