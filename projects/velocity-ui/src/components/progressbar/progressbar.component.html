@@ -4,6 +4,6 @@
     [ngStyle]="{
       width: progress + '%'
     }"
-    [@progressAnimation]="{ value: progress }"
+    [@progressAnimation]="{ value: progress, params: { progress } }"
   ></div>
 </div>

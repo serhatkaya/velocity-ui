@@ -12,7 +12,6 @@ export const dropdownState = trigger('dropdownState', [
     style({
       transform: 'scale(0.8)',
       opacity: 0,
-      pointerEvents: 'none',
     })
   ),
   state(
@@ -20,7 +19,6 @@ export const dropdownState = trigger('dropdownState', [
     style({
       transform: 'scale(1)',
       opacity: 1,
-      pointerEvents: 'auto',
     })
   ),
   transition(
