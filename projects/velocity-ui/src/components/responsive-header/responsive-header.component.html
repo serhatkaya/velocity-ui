@@ -1,0 +1,17 @@
+<header #wrapper class="responsive-header">
+  <div class="hamburger-btn" (click)="toggleMenu()">
+    <span class="line"></span>
+    <span class="line"></span>
+    <span class="line"></span>
+  </div>
+
+  <ng-content select="[logoSlot]"></ng-content>
+
+  <div
+    class="header-content"
+    [ngClass]="{ show: isMenuOpen }"
+    (outerClick)="onOuterClick($event)"
+  >
+    <ng-content></ng-content>
+  </div>
+</header>

@@ -13,3 +13,7 @@ export * from './toast/toast.component';
 export * from './toast/toast.service';
 export * from './toast/toast-position.enum';
 export * from './toast/toast-type.enum';
+
+// Responsive Header
+export * from './responsive-header/responsive-header.component';
+export * from './responsive-header/responsive-header.module';
