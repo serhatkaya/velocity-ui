@@ -11,9 +11,6 @@ import {
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  /**
-   *
-   */
   constructor(toast: VelocityToastService) {
     toast.show('Başlık', 'Bildirim mesajı', {
       type: VelocityToastType.SUCCESS,
@@ -22,4 +19,12 @@ export class AppComponent {
     });
   }
   title = 'velocity-demo';
+
+  onFileDropped(data: any) {
+    console.log(data, 'drop');
+  }
+
+  onFilesHovered(data: any) {
+    console.log('hoverfile', data);
+  }
 }

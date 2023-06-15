@@ -1,0 +1,94 @@
+$file-blue: #007bff;
+
+.dropzone {
+  border: 2px dashed #ccc;
+  height: 200px;
+  position: relative;
+  border-radius: 5px;
+
+  .file-list {
+    flex-wrap: wrap;
+    display: flex;
+  }
+
+  &.hover {
+    border-color: $file-blue;
+    background-color: #f9f9f9;
+  }
+
+  .dropzone-content {
+    display: flex;
+    position: absolute;
+    bottom: auto;
+    left: 50%;
+    right: "auto";
+    top: 50%;
+    transform: "translate(-50%, -50%)";
+  }
+
+  .file-list {
+    gap: 12px;
+    padding: 8px;
+    .file {
+      position: relative;
+      .close-icon {
+        width: 10px;
+        height: 10px;
+        &::after,
+        &::before {
+          cursor: pointer;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          top: 12px;
+          left: auto;
+          right: 0;
+          width: 10%;
+          height: 2px;
+          background-color: #000;
+          transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 12px;
+          left: auto;
+          right: 0px;
+          width: 10%;
+          height: 2px;
+          background-color: #000;
+          transform: translate(-50%, -50%) rotate(-45deg);
+        }
+      }
+
+      padding: 4px;
+      border-radius: 5px;
+      border: 2px dashed $file-blue;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 120px;
+      justify-content: center;
+      height: 80px;
+      .file-info {
+        text-align: center;
+      }
+      .file-name {
+        font-weight: bold;
+        margin-bottom: 5px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 80px;
+      }
+      .file-size {
+        font-size: 12px;
+        color: #888;
+      }
+    }
+  }
+}
+
+/* Diğer stiller */

@@ -1,0 +1,34 @@
+<div
+  class="dropzone"
+  [ngClass]="{
+    hover: isFileHovered
+  }"
+  (drop)="onDrop($event)"
+  (dragover)="onDragOver($event)"
+  (dragleave)="onDragLeave($event)"
+>
+  <ng-container *ngIf="droppedFiles.length > 0 && !isFileHovered; else noFile">
+    <div class="file-list">
+      <div class="file" *ngFor="let file of droppedFiles">
+        <div class="close-icon"></div>
+        <div class="file-icon"></div>
+        <div class="file-info">
+          <div class="file-name">{{ file.name }}</div>
+          <div class="file-size">{{ getFileSize(file.size) }}</div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #noFile>
+    <div class="dropzone-content">
+      <ng-container *ngIf="!isFileHovered">
+        <ng-content select="[content]"></ng-content>
+      </ng-container>
+
+      <ng-container *ngIf="isFileHovered">
+        <ng-content select="[onFileHoveredContent]"></ng-content>
+      </ng-container>
+    </div>
+  </ng-template>
+</div>

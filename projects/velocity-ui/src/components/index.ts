@@ -29,3 +29,7 @@ export * from './dropdown/dropdown.component';
 // Progressbar
 export * from './progressbar/progressbar.module';
 export * from './progressbar/progressbar.component';
+
+// Dropzone
+export * from './dropzone/dropzone.module';
+export * from './dropzone/dropzone.component';
