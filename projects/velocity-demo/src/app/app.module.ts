@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
 import {
+  VelocityAccordionModule,
   VelocityAlertModule,
+  VelocityDropdownModule,
+  VelocityProgressbarModule,
   VelocityResponsiveHeaderModule,
   VelocityTabsModule,
 } from 'velocity-ui';
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,6 +18,9 @@ import {
     VelocityTabsModule,
     VelocityAlertModule,
     VelocityResponsiveHeaderModule,
+    VelocityAccordionModule,
+    VelocityDropdownModule,
+    VelocityProgressbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

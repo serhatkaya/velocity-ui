@@ -1,4 +1,3 @@
-/* responsive-header.component.scss */
 .responsive-header {
   display: flex;
   align-items: center;
@@ -25,7 +24,7 @@
 
 .header-content {
   @media screen and (max-width: 768px) {
-    display: block; /* Menüyü açık olarak göster */
+    display: block;
     position: fixed;
     top: 0;
     left: 0;

@@ -1,49 +1,87 @@
-<vui-responsive-header>
-  <div logoSlot>logofln</div>
-  <span>selamke</span>
-</vui-responsive-header>
+<!-- app.component.html -->
+<div class="page-container">
+  <vui-responsive-header>
+    <div logoSlot>Logo</div>
+    <div>Menu</div>
+  </vui-responsive-header>
 
-<vui-tabs>
-  <vui-tab title="Tab 1">
-    <span>Tab 1 content</span>
-  </vui-tab>
-  <vui-tab title="Tab 2">
-    <span>Tab 2 content</span>
-  </vui-tab>
-  <vui-tab title="Tab 3" [disabled]="true">
-    <span>Tab 3 content</span>
-  </vui-tab>
-  <vui-tab title="Tab 4">
-    <span>Tab 4 content</span>
-  </vui-tab>
-  <vui-tab title="Tab 5">
-    <span>Tab 5 content</span>
-  </vui-tab>
-  <vui-tab title="Tab 6">
-    <span>Tab 6 content</span>
-  </vui-tab>
-  <vui-tab title="Tab 7">
-    <span>Tab 7 content</span>
-  </vui-tab>
-</vui-tabs>
+  <div class="content-container">
+    <div class="main-content">
+      <h1>Welcome to My App</h1>
 
-<vui-alert
-  type="info"
-  [dismissible]="true"
-  message="This is an info alert."
-></vui-alert>
-<vui-alert
-  type="success"
-  [dismissible]="false"
-  message="This is a success alert."
-></vui-alert>
-<vui-alert
-  type="warning"
-  [dismissible]="true"
-  message="This is a warning alert."
-></vui-alert>
-<vui-alert
-  type="error"
-  [dismissible]="true"
-  message="This is an error alert."
-></vui-alert>
+      <vui-accordion>
+        <div class="accordion-header" accordionHeader>Accordion 1</div>
+        <div>
+          <p>Accordion 1 Content</p>
+        </div>
+      </vui-accordion>
+
+      <vui-accordion>
+        <div class="accordion-header" accordionHeader>Accordion 2</div>
+        <div>
+          <p>Accordion 2 Content</p>
+        </div>
+      </vui-accordion>
+
+      <vui-tabs>
+        <vui-tab title="Tab 1">
+          <span>Tab 1 content</span>
+        </vui-tab>
+        <vui-tab title="Tab 2">
+          <span>Tab 2 content</span>
+        </vui-tab>
+        <!-- Add more tabs as needed -->
+      </vui-tabs>
+
+      <div class="alert-container">
+        <vui-alert
+          type="info"
+          [dismissible]="true"
+          message="This is an info alert."
+        ></vui-alert>
+        <vui-alert
+          type="success"
+          [dismissible]="false"
+          message="This is a success alert."
+        ></vui-alert>
+        <vui-alert
+          type="warning"
+          [dismissible]="true"
+          message="This is a warning alert."
+        ></vui-alert>
+        <vui-alert
+          type="error"
+          [dismissible]="true"
+          message="This is an error alert."
+        ></vui-alert>
+
+        <div class="dropdown-container">
+          <vui-dropdown [hoverMode]="true">
+            <button type="button" class="dropdown-toggle" vuiDropdownToggle>
+              Hover Dropdown
+            </button>
+            <div vuiDropdownMenu aria-labelledby="dropdownBasic1">
+              <button class="dropdown-item">Action - 1</button>
+              <button class="dropdown-item">Another Action</button>
+              <button class="dropdown-item">Something else is here</button>
+            </div>
+          </vui-dropdown>
+          <vui-dropdown>
+            <button type="button" class="dropdown-toggle" vuiDropdownToggle>
+              Toggle dropdown
+            </button>
+            <div vuiDropdownMenu aria-labelledby="dropdownBasic1">
+              <button class="dropdown-item">Action - 1</button>
+              <button class="dropdown-item">Another Action</button>
+              <button class="dropdown-item">Something else is here</button>
+            </div>
+          </vui-dropdown>
+        </div>
+
+        <div class="progress-bar-container">
+          <vui-progressbar [progress]="55"></vui-progressbar>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

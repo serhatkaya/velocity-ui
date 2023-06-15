@@ -1,11 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { VelocityAccordionComponent } from './accordion.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { VelocityAlertComponent } from './alert.component';
-
 @NgModule({
-  declarations: [VelocityAlertComponent],
+  declarations: [VelocityAccordionComponent],
   imports: [CommonModule, BrowserAnimationsModule],
-  exports: [VelocityAlertComponent],
+  exports: [VelocityAccordionComponent],
 })
-export class VelocityAlertModule {}
+export class VelocityAccordionModule {}

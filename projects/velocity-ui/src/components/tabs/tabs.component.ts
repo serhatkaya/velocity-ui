@@ -1,9 +1,11 @@
 import { Component, ContentChildren, QueryList } from '@angular/core';
+import { tabAnimation } from '../../animations/tabAnimation';
 import { VelocityTabComponent } from './tab/tab.component';
 
 @Component({
   selector: 'vui-tabs',
   templateUrl: './tabs.component.html',
+  animations: [tabAnimation],
 })
 export class VelocityTabsComponent {
   @ContentChildren(VelocityTabComponent)

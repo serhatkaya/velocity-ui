@@ -1,0 +1,14 @@
+<div class="accordion" [ngClass]="{ open: isOpen }">
+  <div class="accordion-header" (click)="toggleAccordion()">
+    <span class="accordion-icon" [ngClass]="{ open: isOpen }">{{
+      isOpen ? "-" : "+"
+    }}</span>
+    <ng-content select="[accordionHeader]"></ng-content>
+  </div>
+  <div
+    class="accordion-content"
+    [@accordionAnimation]="isOpen ? 'open' : 'closed'"
+  >
+    <ng-content></ng-content>
+  </div>
+</div>

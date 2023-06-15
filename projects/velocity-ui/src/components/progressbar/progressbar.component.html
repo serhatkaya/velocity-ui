@@ -1,0 +1,9 @@
+<div class="progress-bar">
+  <div
+    class="progress-bar-inner"
+    [ngStyle]="{
+      width: progress + '%'
+    }"
+    [@progressAnimation]="{ value: progress }"
+  ></div>
+</div>

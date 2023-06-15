@@ -1,0 +1,19 @@
+<!-- vui-dropdown.component.html -->
+<div
+  class="dropdown"
+  [class.open]="isOpen"
+  (outerClick)="isOpen && onOuterClick($event)"
+  (mouseenter)="onEnterStream.emit()"
+  (mouseleave)="onLeaveStream.emit()"
+>
+  <ng-content select="[vuiDropdownToggle]"></ng-content>
+  <div
+    #wrapper
+    class="dropdown-menu"
+    [@dropdownState]="isOpen ? 'open' : 'closed'"
+    [class.show]="isOpen"
+    [attr.aria-labelledby]="dropdownId"
+  >
+    <ng-content select="[vuiDropdownMenu]"></ng-content>
+  </div>
+</div>

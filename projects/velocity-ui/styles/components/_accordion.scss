@@ -1,0 +1,33 @@
+.accordion {
+  border: 1px solid #ccc;
+}
+
+.accordion-header {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+  background-color: #f0f0f0;
+}
+
+.accordion-header .accordion-icon {
+  margin-right: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.accordion-content {
+  overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.open {
+  .accordion-content {
+    padding: 10px;
+
+    visibility: visible;
+    opacity: 1;
+    padding: 10px;
+  }
+}

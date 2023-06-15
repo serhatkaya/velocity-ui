@@ -1,11 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { VelocityOuterClickDirective } from './outer-click.directive';
-import { CommonModule } from '@angular/common';
-
+const decex = [VelocityOuterClickDirective];
 @NgModule({
   imports: [CommonModule],
-  exports: [VelocityOuterClickDirective],
-  declarations: [VelocityOuterClickDirective],
+  exports: [...decex],
+  declarations: [...decex],
   providers: [],
 })
 export class VelocityDirectivesModule {}
