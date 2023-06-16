@@ -1,24 +1,225 @@
+/* app.component.css */
 .page-container {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+.logo-slot {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.menu {
+  font-size: 18px;
+  color: #666;
 }
 
 .content-container {
-  display: flex;
-  flex-grow: 1;
-}
-
-.sidebar {
-  width: 20%;
-  background-color: #f1f1f1;
+  background-color: #fff;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .main-content {
-  flex-grow: 1;
-  padding: 20px;
+  margin-bottom: 40px;
+}
+
+.welcome-heading {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.accordion-header {
+  background-color: #f0f0f0;
+  padding: 10px;
+  font-size: 20px;
+  color: #333;
+  cursor: pointer;
+}
+
+.vui-accordion-content {
+  padding: 10px;
+}
+
+.vui-tabs {
+  margin-top: 20px;
+}
+
+.vui-tabs .vui-tab {
+  background-color: #f0f0f0;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.vui-tabs .vui-tab:hover {
+  background-color: #e0e0e0;
 }
 
 .alert-container {
   margin-top: 20px;
 }
+
+.vui-alert {
+  margin-bottom: 10px;
+}
+
+.dropzone-container {
+  margin-top: 20px;
+}
+
+.on-file-hovered-content {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.dropzone-content {
+  font-size: 18px;
+  color: #333;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 2px dashed #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dropzone-content:hover {
+  background-color: #e0e0e0;
+}
+
+.dropzone-button {
+  margin-top: 10px;
+  font-size: 16px;
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dropzone-button:hover {
+  background-color: #45a049;
+}
+
+.progress-bar-container {
+  margin-top: 20px;
+}
+
+.dropdown-container {
+  margin-top: 20px;
+}
+
+.dropdown-toggle {
+  font-size: 18px;
+  padding: 8px 16px;
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-toggle:hover {
+  background-color: #e0e0e0;
+}
+
+.dropdown-menu {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-top: none;
+  display: none;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-item {
+  font-size: 16px;
+  padding: 8px 16px;
+  background-color: transparent;
+  color: #333;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #e0e0e0;
+}
+
+.sidebar-container {
+  margin-top: 20px;
+}
+
+.sidebar-button {
+  font-size: 18px;
+  padding: 8px 16px;
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar-button:hover {
+  background-color: #e0e0e0;
+}
+
+.vui-sidebar {
+  background-color: #f0f0f0;
+  padding: 10px;
+  margin-top: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.vui-sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.vui-sidebar ul li {
+  font-size: 16px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.vui-sidebar ul li:hover {
+  color: #666;
+}
+
+// [data-tooltip] {
+//   position: relative;
+//   display: inline-block;
+// }
+
+// [data-tooltip]::after {
+//   content: attr(data-tooltip);
+//   visibility: hidden;
+//   width: 120px;
+//   background-color: #000;
+//   color: #fff;
+//   text-align: center;
+//   border-radius: 6px;
+//   padding: 5px;
+//   position: absolute;
+//   z-index: 1;
+//   bottom: 125%;
+//   left: 50%;
+//   transform: translateX(-50%);
+//   opacity: 0;
+//   transition: opacity 0.3s;
+// }
+
+// [data-tooltip]:hover::after {
+//   visibility: visible;
+//   opacity: 1;
+// }

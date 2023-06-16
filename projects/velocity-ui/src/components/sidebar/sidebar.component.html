@@ -1,0 +1,17 @@
+<!-- sidebar.component.html -->
+<div class="sidebar-container" [ngClass]="{ open: isOpen$ | async }">
+  <div class="sidebar" [class]="position">
+    <div class="sidebar-header">
+      <ng-container *ngIf="!customHeader">
+        <h2 class="sidebar-title">{{ title }}</h2>
+        <button class="close-btn" (click)="closeSidebar()">&times;</button>
+      </ng-container>
+      <ng-container *ngIf="customHeader">
+        <ng-content select="[vuiSidebarHeader]"></ng-content>
+      </ng-container>
+    </div>
+    <div class="sidebar-body" *ngIf="isOpen">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

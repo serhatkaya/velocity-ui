@@ -35,3 +35,8 @@ export * from './progressbar/progressbar.component';
 export * from './dropzone/dropzone.module';
 export * from './dropzone/dropzone.component';
 export * from './dropzone/formatSize.pipe';
+
+// Sidebar
+export * from './sidebar/sidebar.module';
+export * from './sidebar/sidebar.component';
+export * from './sidebar/sidebar.service';

@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import {
   VelocityDropzoneComponent,
+  VelocitySidebarService,
   VelocityToastPosition,
   VelocityToastService,
   VelocityToastType,
@@ -14,14 +15,17 @@ import {
 export class AppComponent {
   @ViewChild(VelocityDropzoneComponent)
   dropzoneComponent!: VelocityDropzoneComponent;
-  constructor(toast: VelocityToastService) {
+
+  constructor(
+    toast: VelocityToastService,
+    public sidebarService: VelocitySidebarService
+  ) {
     toast.show('Title', 'Toast Message', {
       type: VelocityToastType.SUCCESS,
       position: VelocityToastPosition.TOP_RIGHT,
       timeOut: 5000,
     });
   }
-  title = 'velocity-demo';
 
   onFileDropped(data: any) {
     console.log(data, 'drop');
@@ -31,7 +35,7 @@ export class AppComponent {
     console.log('hoverfile', data);
   }
 
-  getfiles() {
+  getFiles() {
     console.log(this.dropzoneComponent.getDroppedFiles());
   }
 }

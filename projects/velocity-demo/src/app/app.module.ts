@@ -8,6 +8,7 @@ import {
   VelocityDropzoneModule,
   VelocityProgressbarModule,
   VelocityResponsiveHeaderModule,
+  VelocitySidebarModule,
   VelocityTabsModule,
 } from 'velocity-ui';
 import { AppComponent } from './app.component';
@@ -23,6 +24,7 @@ import { AppComponent } from './app.component';
     VelocityDropdownModule,
     VelocityProgressbarModule,
     VelocityDropzoneModule,
+    VelocitySidebarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

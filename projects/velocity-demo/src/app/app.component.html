@@ -7,7 +7,7 @@
 
   <div class="content-container">
     <div class="main-content">
-      <h1>Welcome to My App</h1>
+      <h1>Velocity UI - Component Library</h1>
 
       <vui-accordion>
         <div class="accordion-header" accordionHeader>Accordion 1</div>
@@ -54,45 +54,97 @@
           [dismissible]="true"
           message="This is an error alert."
         ></vui-alert>
+      </div>
 
-        <div class="dropdown-container">
-          <vui-dropdown [hoverMode]="true">
-            <button type="button" class="dropdown-toggle" vuiDropdownToggle>
-              Hover Dropdown
+      <div class="dropzone-container">
+        <vui-dropzone
+          [clickToUpload]="true"
+          (fileDropped)="onFileDropped($event)"
+          (filesHovered)="onFilesHovered($event)"
+        >
+          <div onFileHoveredContent>Release mouse to upload file</div>
+          <div content>Drag & Drop Files Here</div>
+        </vui-dropzone>
+        <button class="vui-btn vui-btn-primary" (click)="getFiles()">
+          Console Log Files
+        </button>
+      </div>
+
+      <div class="progress-bar-container">
+        <vui-progressbar [progress]="55"></vui-progressbar>
+      </div>
+
+      <div class="dropdown-container">
+        <vui-dropdown [hoverMode]="true">
+          <button type="button" class="dropdown-toggle" vuiDropdownToggle>
+            Hover Dropdown
+          </button>
+          <div vuiDropdownMenu aria-labelledby="dropdownBasic1">
+            <button class="dropdown-item">Action - 1</button>
+            <button class="dropdown-item">Another Action</button>
+            <button class="dropdown-item">Something else is here</button>
+          </div>
+        </vui-dropdown>
+        <vui-dropdown>
+          <button type="button" class="dropdown-toggle" vuiDropdownToggle>
+            Toggle dropdown
+          </button>
+          <div vuiDropdownMenu aria-labelledby="dropdownBasic1">
+            <button class="dropdown-item">Action - 1</button>
+            <button class="dropdown-item">Another Action</button>
+            <button class="dropdown-item">Something else is here</button>
+          </div>
+        </vui-dropdown>
+      </div>
+
+      <div class="sidebar-containerx">
+        <button
+          data-tooltip="testtooltesttooltesttooltesttooltesttooltesttooltesttooltesttooltesttooltesttooltesttooltesttooltesttooltesttooltesttooltesttooltesttool"
+          class="vui-btn vui-btn-success"
+          (click)="sidebarService.open('test1')"
+        >
+          Open Sidebar With Custom Header
+        </button>
+        <button
+          class="vui-btn vui-btn-success"
+          (click)="sidebarService.open('test2')"
+        >
+          Open Sidebar With Built-in Header
+        </button>
+
+        <vui-sidebar
+          title="Sidebar with built-in Header"
+          [id]="'test2'"
+          position="left"
+          [customHeader]="false"
+        >
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+          </ul>
+        </vui-sidebar>
+        <vui-sidebar
+          title="Menu"
+          [id]="'test1'"
+          position="left"
+          [customHeader]="true"
+        >
+          <div vuiSidebarHeader>
+            <div class="header-title">This is a custom sidebar header</div>
+            <button
+              class="vui-btn vui-btn-danger"
+              (click)="sidebarService.close('test1')"
+            >
+              Custom Close Button
             </button>
-            <div vuiDropdownMenu aria-labelledby="dropdownBasic1">
-              <button class="dropdown-item">Action - 1</button>
-              <button class="dropdown-item">Another Action</button>
-              <button class="dropdown-item">Something else is here</button>
-            </div>
-          </vui-dropdown>
-          <vui-dropdown>
-            <button type="button" class="dropdown-toggle" vuiDropdownToggle>
-              Toggle dropdown
-            </button>
-            <div vuiDropdownMenu aria-labelledby="dropdownBasic1">
-              <button class="dropdown-item">Action - 1</button>
-              <button class="dropdown-item">Another Action</button>
-              <button class="dropdown-item">Something else is here</button>
-            </div>
-          </vui-dropdown>
-        </div>
-
-        <div class="progress-bar-container">
-          <vui-progressbar [progress]="55"></vui-progressbar>
-        </div>
-
-        <div class="dropzone-container">
-          <vui-dropzone
-            [clickToUpload]="true"
-            (fileDropped)="onFileDropped($event)"
-            (filesHovered)="onFilesHovered($event)"
-          >
-            <div onFileHoveredContent>Release mouse to upload file</div>
-            <div content>Drag & Drop Files Here</div>
-          </vui-dropzone>
-          <button (click)="getfiles()">getfiles</button>
-        </div>
+          </div>
+          <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+          </ul>
+        </vui-sidebar>
       </div>
     </div>
   </div>
