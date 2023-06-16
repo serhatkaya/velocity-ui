@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import {
+  VelocityDropzoneComponent,
   VelocityToastPosition,
   VelocityToastService,
   VelocityToastType,
@@ -11,8 +12,10 @@ import {
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  @ViewChild(VelocityDropzoneComponent)
+  dropzoneComponent!: VelocityDropzoneComponent;
   constructor(toast: VelocityToastService) {
-    toast.show('Başlık', 'Bildirim mesajı', {
+    toast.show('Title', 'Toast Message', {
       type: VelocityToastType.SUCCESS,
       position: VelocityToastPosition.TOP_RIGHT,
       timeOut: 5000,
@@ -26,5 +29,9 @@ export class AppComponent {
 
   onFilesHovered(data: any) {
     console.log('hoverfile', data);
+  }
+
+  getfiles() {
+    console.log(this.dropzoneComponent.getDroppedFiles());
   }
 }

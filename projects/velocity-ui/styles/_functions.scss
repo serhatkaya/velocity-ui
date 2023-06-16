@@ -1,0 +1,73 @@
+@function pos-align($position) {
+  @if $position == "none" {
+    @return (
+      position: static,
+      bottom: 0,
+      left: 0,
+      right: 0,
+      top: 0,
+      transform: none
+    );
+  } @else if $position == "top-left" {
+    @return (bottom: auto, left: 0, right: auto, top: 0, transform: none);
+  } @else if $position == "top-center" {
+    @return (
+      bottom: auto,
+      left: 50%,
+      right: auto,
+      top: 0,
+      transform: translateX(-50%)
+    );
+  } @else if $position == "top-right" {
+    @return (bottom: auto, left: auto, right: 0, top: 0, transform: none);
+  } @else if $position == "center-left" {
+    @return (
+      bottom: auto,
+      left: 0,
+      right: auto,
+      top: 50%,
+      transform: translateY(-50%)
+    );
+  } @else if $position == "center-center" {
+    @return (
+      bottom: auto,
+      left: 50%,
+      right: auto,
+      top: 50%,
+      transform: translate(-50%, -50%)
+    );
+  } @else if $position == "center-right" {
+    @return (
+      bottom: auto,
+      left: auto,
+      right: 0,
+      top: 50%,
+      transform: translateY(-50%)
+    );
+  } @else if $position == "bottom-left" {
+    @return (bottom: 0, left: 0, right: auto, top: auto, transform: none);
+  } @else if $position == "bottom-center" {
+    @return (
+      bottom: 0,
+      left: 50%,
+      right: auto,
+      top: auto,
+      transform: translateX(-50%)
+    );
+  } @else if $position == "bottom-right" {
+    @return (bottom: 0, left: auto, right: 0, top: auto, transform: none);
+  } @else if $position == "bottom-stretch" {
+    @return (bottom: 0, left: 0, right: 0, top: auto, transform: none);
+  } @else if $position == "top-stretch" {
+    @return (bottom: auto, left: 0, right: 0, top: 0, transform: none);
+  } @else {
+    @error "Invalid position value: #{$position}.";
+  }
+}
+
+@mixin pos-align($position) {
+  position: absolute;
+  @each $key, $value in pos-align($position) {
+    #{$key}: $value;
+  }
+}

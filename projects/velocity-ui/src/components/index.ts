@@ -25,6 +25,7 @@ export * from './accordion/accordion.module';
 // Dropdown
 export * from './dropdown/dropdown.module';
 export * from './dropdown/dropdown.component';
+export * from './dropdown/dropdownToggle.directive';
 
 // Progressbar
 export * from './progressbar/progressbar.module';
@@ -33,3 +34,4 @@ export * from './progressbar/progressbar.component';
 // Dropzone
 export * from './dropzone/dropzone.module';
 export * from './dropzone/dropzone.component';
+export * from './dropzone/formatSize.pipe';

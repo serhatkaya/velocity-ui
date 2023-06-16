@@ -2,11 +2,15 @@ $file-blue: #007bff;
 
 .dropzone {
   border: 2px dashed #ccc;
-  height: 200px;
+  height: 240px;
+  overflow: auto;
   position: relative;
   border-radius: 5px;
-
+  &.click-to-upload {
+    cursor: pointer;
+  }
   .file-list {
+    justify-content: center;
     flex-wrap: wrap;
     display: flex;
   }
@@ -18,12 +22,10 @@ $file-blue: #007bff;
 
   .dropzone-content {
     display: flex;
-    position: absolute;
-    bottom: auto;
-    left: 50%;
-    right: "auto";
-    top: 50%;
-    transform: "translate(-50%, -50%)";
+    user-select: none;
+    @include pos-align(center-center);
+    font-size: 36px;
+    color: $custom-color-3;
   }
 
   .file-list {
@@ -31,7 +33,7 @@ $file-blue: #007bff;
     padding: 8px;
     .file {
       position: relative;
-      .close-icon {
+      .remove-icon {
         width: 10px;
         height: 10px;
         &::after,
@@ -69,7 +71,7 @@ $file-blue: #007bff;
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 120px;
+      width: 100px;
       justify-content: center;
       height: 80px;
       .file-info {
@@ -82,6 +84,15 @@ $file-blue: #007bff;
         text-overflow: ellipsis;
         white-space: nowrap;
         width: 80px;
+        &:hover {
+          z-index: 100;
+          background-color: #f9f9f9;
+          border: 1px solid $file-blue;
+          width: 100%;
+          position: relative;
+          border-radius: 4px;
+          padding: 4px;
+        }
       }
       .file-size {
         font-size: 12px;
@@ -90,5 +101,3 @@ $file-blue: #007bff;
     }
   }
 }
-
-/* Diğer stiller */

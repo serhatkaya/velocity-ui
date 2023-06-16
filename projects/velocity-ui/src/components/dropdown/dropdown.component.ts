@@ -18,7 +18,7 @@ import {
   timer,
 } from 'rxjs';
 import { dropdownState } from '../../animations/dropdownState';
-import { VelocityDropdownToggleDirective } from '../../directives/dropdownToggle.directive';
+import { VelocityDropdownToggleDirective } from './dropdownToggle.directive';
 
 @Component({
   selector: 'vui-dropdown',

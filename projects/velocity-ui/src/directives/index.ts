@@ -1,4 +1,3 @@
 export * from './directives.module';
-
-export * from './dropdownToggle.directive';
+// Directives
 export * from './outer-click.directive';

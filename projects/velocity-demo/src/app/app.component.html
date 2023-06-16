@@ -84,12 +84,14 @@
 
         <div class="dropzone-container">
           <vui-dropzone
+            [clickToUpload]="true"
             (fileDropped)="onFileDropped($event)"
             (filesHovered)="onFilesHovered($event)"
           >
             <div onFileHoveredContent>Release mouse to upload file</div>
             <div content>Drag & Drop Files Here</div>
           </vui-dropzone>
+          <button (click)="getfiles()">getfiles</button>
         </div>
       </div>
     </div>

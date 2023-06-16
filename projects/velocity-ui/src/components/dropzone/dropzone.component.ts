@@ -1,13 +1,23 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 
 @Component({
   selector: 'vui-dropzone',
   templateUrl: './dropzone.component.html',
 })
 export class VelocityDropzoneComponent {
-  droppedFiles: File[] = [];
+  constructor(@Inject(DOCUMENT) protected document: Document) {}
+
   @Output() fileDropped = new EventEmitter<FileList>();
   @Output() filesHovered = new EventEmitter<boolean>();
+  @Output() onChange = new EventEmitter<File[]>();
+  @Input() clickToUpload: boolean = false;
+  @Input() multiple: boolean = true;
+  protected droppedFilesSubject = new BehaviorSubject<File[]>([]);
+  public droppedFiles$ = this.droppedFilesSubject
+    .asObservable()
+    .pipe(tap((files) => this.onChange.emit(files)));
 
   isFileHovered: boolean = false;
 
@@ -28,22 +38,52 @@ export class VelocityDropzoneComponent {
     this.filesHovered.emit(false);
     const files = event.dataTransfer?.files;
     if (files && files.length > 0) {
-      this.droppedFiles.push(...Array.from(files));
+      this.insert(Array.from(files));
       this.fileDropped.emit(files);
     }
     this.isFileHovered = false;
   }
 
-  protected getDroppedFiles(): File[] {
-    return this.droppedFiles;
+  public removeFile(i: number) {
+    const current = this.droppedFilesSubject.value;
+    current.splice(i, 1);
+    this.droppedFilesSubject.next(current);
   }
-  getFileSize(size: number): string {
-    const units = ['B', 'KB', 'MB', 'GB', 'TB'];
-    let index = 0;
-    while (size >= 1024 && index < units.length - 1) {
-      size /= 1024;
-      index++;
+
+  private insert(newFiles: File[]) {
+    const current = this.droppedFilesSubject.value;
+    const updatedValue = [...current, ...newFiles];
+    this.droppedFilesSubject.next(this.multiple ? updatedValue : [newFiles[0]]);
+  }
+
+  public onClickDropzone(event: MouseEvent) {
+    const target = event.target as HTMLElement;
+
+    if (!target || (target && target.classList?.contains('remove-icon'))) {
+      return;
     }
-    return `${size.toFixed(2)} ${units[index]}`;
+
+    const fileSelector = this.document.createElement('input');
+    fileSelector.type = 'file';
+    this.multiple && fileSelector.setAttribute('multiple', '');
+    fileSelector.onchange = () => {
+      const selectedFiles = fileSelector?.files ?? [];
+      this.insert(Array.from(selectedFiles));
+      fileSelector.remove();
+    };
+
+    fileSelector.click();
+  }
+
+  public getDroppedFiles(): File[] {
+    return this.droppedFilesSubject.value;
+  }
+
+  public getDroppedFilesAsync(): Observable<File[]> {
+    return this.droppedFiles$;
+  }
+
+  public removeAllFiles() {
+    this.droppedFilesSubject.next([]);
   }
 }

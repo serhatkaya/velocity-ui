@@ -1,20 +1,23 @@
 <div
   class="dropzone"
+  *ngIf="droppedFiles$ | async as droppedFiles"
   [ngClass]="{
-    hover: isFileHovered
+    hover: isFileHovered,
+    'click-to-upload': clickToUpload
   }"
   (drop)="onDrop($event)"
   (dragover)="onDragOver($event)"
+  (click)="clickToUpload && onClickDropzone($event)"
   (dragleave)="onDragLeave($event)"
 >
   <ng-container *ngIf="droppedFiles.length > 0 && !isFileHovered; else noFile">
     <div class="file-list">
-      <div class="file" *ngFor="let file of droppedFiles">
-        <div class="close-icon"></div>
+      <div class="file" *ngFor="let file of droppedFiles; let i = index">
+        <div class="remove-icon" (click)="removeFile(i)"></div>
         <div class="file-icon"></div>
         <div class="file-info">
           <div class="file-name">{{ file.name }}</div>
-          <div class="file-size">{{ getFileSize(file.size) }}</div>
+          <div class="file-size">{{ file.size | formatSize }}</div>
         </div>
       </div>
     </div>
