@@ -1,2 +1,3 @@
-export * from './components/index';
-export * from './directives/index';
+export * from './components';
+export * from './directives';
+export * from './pipes';

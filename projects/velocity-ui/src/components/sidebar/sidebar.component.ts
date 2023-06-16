@@ -1,5 +1,5 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { Observable, delay, of, tap } from 'rxjs';
+import { Observable, of, tap } from 'rxjs';
 import { VelocitySidebarService } from './sidebar.service';
 
 @Component({
@@ -16,14 +16,11 @@ export class VelocitySidebarComponent implements OnInit {
   @Input() position: 'left' | 'right' = 'right';
   public isOpen = false;
   public isOpen$: Observable<boolean> = of(false);
-  public isOpenDelayed$: Observable<boolean> = of(false);
 
   ngOnInit(): void {
     this.isOpen$ = this.sidebarService
       .isOpenAsync(this.id)
       .pipe(tap((state: boolean) => (this.isOpen = state)));
-
-    this.isOpenDelayed$ = this.isOpen$.pipe(delay(100));
   }
 
   public closeSidebar(): void {

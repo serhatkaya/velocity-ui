@@ -2,7 +2,7 @@
 <div class="sidebar-container" [ngClass]="{ open: isOpen$ | async }">
   <div class="sidebar" [class]="position" #wrapper>
     <div
-      *ngIf="isOpenDelayed$ | async"
+      *ngIf="isOpen$ | vuiDelay : 100 | async"
       style="display: none"
       (outerClick)="onOuterClick($event)"
     ></div>
