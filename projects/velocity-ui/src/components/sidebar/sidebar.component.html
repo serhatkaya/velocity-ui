@@ -1,6 +1,11 @@
 <!-- sidebar.component.html -->
 <div class="sidebar-container" [ngClass]="{ open: isOpen$ | async }">
-  <div class="sidebar" [class]="position">
+  <div class="sidebar" [class]="position" #wrapper>
+    <div
+      *ngIf="isOpenDelayed$ | async"
+      style="display: none"
+      (outerClick)="onOuterClick($event)"
+    ></div>
     <div class="sidebar-header">
       <ng-container *ngIf="!customHeader">
         <h2 class="sidebar-title">{{ title }}</h2>
