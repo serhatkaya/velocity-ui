@@ -146,6 +146,21 @@
           </ul>
         </vui-sidebar>
       </div>
+
+      <div class="toglge-test">
+        <h1>ReactiveForms</h1>
+        <form [formGroup]="myForm">
+          <vui-toggle formControlName="toggleState"></vui-toggle>
+        </form>
+
+        <h1>ng model</h1>
+
+        <vui-toggle
+          [disabled]="false"
+          [(ngModel)]="toggleState"
+          (ngModelChange)="toggleStateChange($event)"
+        ></vui-toggle>
+      </div>
     </div>
   </div>
 </div>

@@ -40,3 +40,7 @@ export * from './dropzone/formatSize.pipe';
 export * from './sidebar/sidebar.module';
 export * from './sidebar/sidebar.component';
 export * from './sidebar/sidebar.service';
+
+// Toggle
+export * from './toggle/toggle.component';
+export * from './toggle/toggle.module';

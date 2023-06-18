@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import {
   VelocityDropzoneComponent,
   VelocitySidebarService,
@@ -13,6 +14,14 @@ import {
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  toggleState = true;
+  myForm: FormGroup = new FormGroup({
+    toggleState: new FormControl({
+      value: false,
+      disabled: false,
+    }),
+  });
+
   @ViewChild(VelocityDropzoneComponent)
   dropzoneComponent!: VelocityDropzoneComponent;
 
@@ -37,5 +46,9 @@ export class AppComponent {
 
   getFiles() {
     console.log(this.dropzoneComponent.getDroppedFiles());
+  }
+
+  toggleStateChange(e: any) {
+    console.log(e, 'toggleState Model changed');
   }
 }
