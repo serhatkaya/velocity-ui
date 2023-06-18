@@ -1,0 +1,61 @@
+/* Stepper */
+.stepper {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+.stepper li {
+  flex-grow: 1;
+  text-align: center;
+  padding: 10px;
+  background-color: #f2f2f2;
+  border: none;
+  position: relative;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.stepper li.complete {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.stepper li.active {
+  background-color: #2196f3;
+  box-shadow: 0 0 10px rgba(33, 150, 243, 0.5);
+  z-index: 1;
+  color: #fff;
+}
+
+/* Step content */
+.step-content {
+  padding: 20px;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: opacity 0.3s ease;
+}
+
+/* Step actions */
+.step-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.step-actions button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.step-actions button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

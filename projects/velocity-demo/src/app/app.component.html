@@ -161,6 +161,40 @@
           (ngModelChange)="toggleStateChange($event)"
         ></vui-toggle>
       </div>
+
+      <div class="stepper-test">
+        <vui-stepper #stepper>
+          <vui-step title="Step 1" #step1>
+            <div>Step 1 Content</div>
+            <button class="vui-btn vui-btn-secondary" (click)="step1.goBack()">
+              Prev step
+            </button>
+            <button class="vui-btn vui-btn-success" (click)="step1.goNext()">
+              Next step
+            </button>
+          </vui-step>
+
+          <vui-step title="Step 2" #step2>
+            <div>Step 2 Content</div>
+            <button class="vui-btn vui-btn-secondary" (click)="step2.goBack()">
+              Prev step
+            </button>
+            <button class="vui-btn vui-btn-success" (click)="step2.goNext()">
+              Next step
+            </button>
+          </vui-step>
+
+          <vui-step title="Step 3" #step3>
+            <div>Step 3 Content</div>
+            <button class="vui-btn vui-btn-secondary" (click)="step3.goBack()">
+              Prev step
+            </button>
+            <button class="vui-btn vui-btn-success" (click)="step3.goNext()">
+              Next step
+            </button>
+          </vui-step>
+        </vui-stepper>
+      </div>
     </div>
   </div>
 </div>

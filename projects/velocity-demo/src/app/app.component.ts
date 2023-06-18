@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import {
   VelocityDropzoneComponent,
   VelocitySidebarService,
+  VelocityStepperComponent,
   VelocityToastPosition,
   VelocityToastService,
   VelocityToastType,
@@ -14,6 +15,7 @@ import {
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  @ViewChild('stepper') stepper!: VelocityStepperComponent;
   toggleState = true;
   myForm: FormGroup = new FormGroup({
     toggleState: new FormControl({
@@ -50,5 +52,9 @@ export class AppComponent {
 
   toggleStateChange(e: any) {
     console.log(e, 'toggleState Model changed');
+  }
+
+  nextStep() {
+    this.stepper.nextStep();
   }
 }

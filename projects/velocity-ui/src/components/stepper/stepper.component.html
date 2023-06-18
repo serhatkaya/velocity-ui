@@ -1,0 +1,34 @@
+<div class="stepper-container">
+  <ul class="stepper">
+    <li
+      *ngFor="let step of steps; let i = index"
+      [ngClass]="{
+        active: i === activeStepIndex,
+        complete: i < activeStepIndex
+      }"
+    >
+      {{ step.title }}
+    </li>
+  </ul>
+
+  <div class="step-content">
+    <ng-content></ng-content>
+  </div>
+
+  <div class="step-actions" *ngIf="navigation">
+    <button
+      (click)="prevStep()"
+      class="vui-btn vui-btn-primary"
+      [disabled]="activeStepIndex === 0"
+    >
+      Previous
+    </button>
+    <button
+      class="vui-btn vui-btn-success"
+      (click)="nextStep()"
+      [disabled]="activeStepIndex === steps.length - 1"
+    >
+      Next
+    </button>
+  </div>
+</div>

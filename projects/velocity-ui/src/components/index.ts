@@ -44,3 +44,8 @@ export * from './sidebar/sidebar.service';
 // Toggle
 export * from './toggle/toggle.component';
 export * from './toggle/toggle.module';
+
+// Stepper
+export * from './stepper/stepper.module';
+export * from './stepper/step/step.component';
+export * from './stepper/stepper.component';

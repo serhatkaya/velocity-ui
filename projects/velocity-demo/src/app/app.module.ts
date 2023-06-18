@@ -10,6 +10,7 @@ import {
   VelocityProgressbarModule,
   VelocityResponsiveHeaderModule,
   VelocitySidebarModule,
+  VelocityStepperModule,
   VelocityTabsModule,
   VelocityToggleModule,
 } from 'velocity-ui';
@@ -30,6 +31,7 @@ import { AppComponent } from './app.component';
     ReactiveFormsModule,
     VelocityToggleModule,
     FormsModule,
+    VelocityStepperModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

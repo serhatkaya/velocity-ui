@@ -7,8 +7,12 @@
   font-size: 14px;
   transition: background-color 0.3s ease;
   cursor: pointer;
-  &:active {
+  &:active:not(:disabled) {
     transform: translateY(0.5px);
+  }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 }
 
@@ -17,7 +21,7 @@
   background-color: $primary-color;
 }
 
-.vui-btn-primary:hover {
+.vui-btn-primary:hover:not(:disabled) {
   background-color: darken($primary-color, 10%);
 }
 
@@ -26,7 +30,7 @@
   background-color: $secondary-color;
 }
 
-.vui-btn-secondary:hover {
+.vui-btn-secondary:hover:not(:disabled) {
   background-color: darken($secondary-color, 10%);
 }
 
@@ -35,7 +39,7 @@
   background-color: $success-color;
 }
 
-.vui-btn-success:hover {
+.vui-btn-success:hover:not(:disabled) {
   background-color: darken($success-color, 10%);
 }
 
@@ -44,7 +48,7 @@
   background-color: $warning-color;
 }
 
-.vui-btn-warning:hover {
+.vui-btn-warning:hover:not(:disabled) {
   background-color: darken($warning-color, 10%);
 }
 
@@ -53,7 +57,7 @@
   background-color: $error-color;
 }
 
-.vui-btn-danger:hover {
+.vui-btn-danger:hover:not(:disabled) {
   background-color: darken($error-color, 10%);
 }
 
@@ -62,6 +66,6 @@
   background-color: $primary-color;
 }
 
-.vui-btn-info:hover {
+.vui-btn-info:hover:not(:disabled) {
   background-color: darken($primary-color, 10%);
 }
