@@ -3,10 +3,10 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "velocity-ui": {
+    "virtus-ui": {
       "projectType": "library",
-      "root": "projects/velocity-ui",
-      "sourceRoot": "projects/velocity-ui/src",
+      "root": "projects/virtus-ui",
+      "sourceRoot": "projects/virtus-ui/src",
       "prefix": "vui",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,14 +17,14 @@
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/velocity-ui/ng-package.json"
+            "project": "projects/virtus-ui/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/velocity-ui/tsconfig.lib.prod.json"
+              "tsConfig": "projects/virtus-ui/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/velocity-ui/tsconfig.lib.json"
+              "tsConfig": "projects/virtus-ui/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -32,38 +32,38 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": "projects/velocity-ui/tsconfig.spec.json",
+            "tsConfig": "projects/virtus-ui/tsconfig.spec.json",
             "polyfills": ["zone.js", "zone.js/testing"]
           }
         }
       }
     },
-    "velocity-demo": {
+    "virtus-demo": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
         }
       },
-      "root": "projects/velocity-demo",
-      "sourceRoot": "projects/velocity-demo/src",
+      "root": "projects/virtus-demo",
+      "sourceRoot": "projects/virtus-demo/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/velocity-demo",
-            "index": "projects/velocity-demo/src/index.html",
-            "main": "projects/velocity-demo/src/main.ts",
+            "outputPath": "dist/virtus-demo",
+            "index": "projects/virtus-demo/src/index.html",
+            "main": "projects/virtus-demo/src/main.ts",
             "polyfills": ["zone.js"],
-            "tsConfig": "projects/velocity-demo/tsconfig.app.json",
+            "tsConfig": "projects/virtus-demo/tsconfig.app.json",
             "assets": [
-              "projects/velocity-demo/src/favicon.ico",
-              "projects/velocity-demo/src/assets"
+              "projects/virtus-demo/src/favicon.ico",
+              "projects/virtus-demo/src/assets"
             ],
             "styles": [
-              "projects/velocity-demo/src/styles.scss",
-              "node_modules/velocity-ui/styles/main.scss"
+              "projects/virtus-demo/src/styles.scss",
+              "node_modules/virtus-ui/styles/main.scss"
             ],
             "scripts": []
           },
@@ -98,10 +98,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "velocity-demo:build:production"
+              "browserTarget": "virtus-demo:build:production"
             },
             "development": {
-              "browserTarget": "velocity-demo:build:development"
+              "browserTarget": "virtus-demo:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -109,19 +109,107 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "velocity-demo:build"
+            "browserTarget": "virtus-demo:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "polyfills": ["zone.js", "zone.js/testing"],
-            "tsConfig": "projects/velocity-demo/tsconfig.spec.json",
+            "tsConfig": "projects/virtus-demo/tsconfig.spec.json",
             "assets": [
-              "projects/velocity-demo/src/favicon.ico",
-              "projects/velocity-demo/src/assets"
+              "projects/virtus-demo/src/favicon.ico",
+              "projects/virtus-demo/src/assets"
             ],
-            "styles": ["projects/velocity-demo/src/styles.scss"],
+            "styles": ["projects/virtus-demo/src/styles.scss"],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "virtus-docs": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/virtus-docs",
+      "sourceRoot": "projects/virtus-docs/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/virtus-docs",
+            "index": "projects/virtus-docs/src/index.html",
+            "main": "projects/virtus-docs/src/main.ts",
+            "polyfills": ["zone.js"],
+            "tsConfig": "projects/virtus-docs/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/virtus-docs/src/favicon.ico",
+              "projects/virtus-docs/src/assets"
+            ],
+            "styles": ["projects/virtus-docs/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "virtus-docs:build:production"
+            },
+            "development": {
+              "browserTarget": "virtus-docs:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "virtus-docs:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": ["zone.js", "zone.js/testing"],
+            "tsConfig": "projects/virtus-docs/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/virtus-docs/src/favicon.ico",
+              "projects/virtus-docs/src/assets"
+            ],
+            "styles": ["projects/virtus-docs/src/styles.scss"],
             "scripts": []
           }
         }

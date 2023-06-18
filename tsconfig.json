@@ -18,7 +18,7 @@
 //     "module": "es2020",
 //     "lib": ["es2018", "dom"],
 //     "paths": {
-//       "velocity-ui": ["dist/velocity-ui/velocity-ui", "dist/velocity-ui"]
+//       "virtus-ui": ["dist/virtus-ui/virtus-ui", "dist/virtus-ui"]
 //     }
 //   },
 //   "angularCompilerOptions": {
@@ -43,7 +43,7 @@
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "paths": {
-      "velocity-ui": ["dist/velocity-ui"]
+      "virtus-ui": ["dist/virtus-ui"]
     },
     "declaration": false,
     "downlevelIteration": true,
