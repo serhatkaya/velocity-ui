@@ -151,7 +151,10 @@
               "projects/virtus-docs/src/favicon.ico",
               "projects/virtus-docs/src/assets"
             ],
-            "styles": ["projects/virtus-docs/src/styles.scss"],
+            "styles": [
+              "projects/virtus-docs/src/styles.scss",
+              "node_modules/virtus-ui/styles/main.scss"
+            ],
             "scripts": []
           },
           "configurations": {

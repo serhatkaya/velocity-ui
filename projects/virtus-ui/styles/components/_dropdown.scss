@@ -3,7 +3,7 @@
   display: inline-block;
 }
 
-.dropdown-toggle {
+[vuiDropdownToggle] {
   padding: 0.5rem 1rem;
   font-size: 1rem;
   font-weight: bold;
@@ -15,7 +15,7 @@
   transition: all 0.3s ease;
 }
 
-.dropdown-toggle:hover {
+[vuiDropdownToggle]:hover {
   background-color: #f8f9fa;
 }
 

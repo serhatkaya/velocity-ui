@@ -1,0 +1,123 @@
+.logo {
+  display: flex;
+  align-items: center;
+  .mobile-text {
+    display: none;
+  }
+}
+
+.logo img {
+  width: 80px;
+  height: auto;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+}
+
+.menu a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  &:hover {
+    background-color: #e0e0e0;
+  }
+}
+
+.menu a:hover {
+  color: #555;
+}
+
+@media screen and (max-width: 768px) {
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    img {
+      display: none;
+    }
+    .mobile-text {
+      display: block;
+    }
+  }
+  .menu {
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #f1f1f1;
+    padding: 20px;
+  }
+
+  .menu a {
+    margin: 10px 0;
+    font-size: 18px;
+  }
+}
+
+// dropdown
+
+:host ::ng-deep .dropdown-toggle {
+  padding: 0.5rem 1rem;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  background-color: #f0f0f0;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-toggle:hover {
+  background-color: #e0e0e0;
+}
+
+:host ::ng-deep .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 9999;
+}
+
+.dropdown-menu.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+:host ::ng-deep .dropdown-item {
+  margin-left: 0 !important;
+  display: block;
+  width: auto;
+  padding: 0.5rem 1rem;
+  font-weight: 400;
+  color: #333;
+  text-align: left;
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: #f8f8f8;
+}
