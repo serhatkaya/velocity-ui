@@ -1,7 +1,3 @@
-Certainly! Here's a README.md documentation that outlines everything for the various components we've discussed:
-
----
-
 # Virtus UI Components Documentation
 
 Table of Contents:
@@ -70,7 +66,7 @@ The `VirtusSidebar` component acts as a side navigation bar for your application
 To integrate the `VirtusSidebar` in your Angular application, you should import the `VirtusSidebarModule`:
 
 ```typescript
-import { VirtusSidebarModule } from "path-to-your-library"; // Adjust the path accordingly
+import { VirtusSidebarModule } from "virtus-ui";
 
 @NgModule({
   imports: [
@@ -167,7 +163,7 @@ The `VirtusTabs` component provides a way to switch between content that is brok
 To utilize the `VirtusTabs` in your Angular application, import the `VirtusTabsModule`:
 
 ```typescript
-import { VirtusTabsModule } from "path-to-your-library"; // Adjust the path as needed
+import { VirtusTabsModule } from "virtus-ui";
 
 @NgModule({
   imports: [
@@ -238,7 +234,7 @@ A toast notification is a UI element that pops up to alert users of an event, sa
 To use the toast in your Angular application, first import the `VirtusToastModule`:
 
 ```typescript
-import { VirtusToastModule } from "path-to-toast-directory"; // Adjust the path as needed
+import { VirtusToastModule } from "virtus-ui";
 
 @NgModule({
   imports: [
@@ -254,7 +250,7 @@ export class YourModule {}
 Inject `VirtusToastService` in your component or service and use it:
 
 ```typescript
-import { VirtusToastService, VirtusToastType, VirtusToastPosition } from 'path-to-toast-directory'; // Adjust the path
+import { VirtusToastService, VirtusToastType, VirtusToastPosition } from 'virtus-ui';
 
 constructor(private toastService: VirtusToastService) {}
 
@@ -336,7 +332,7 @@ You'd typically want to have styles that would shift the `.toggle-handle` to the
 To use the toggle component in your Angular application, first import the `VirtusToggleModule`:
 
 ```typescript
-import { VirtusToggleModule } from "path-to-toggle-directory"; // Adjust the path as needed
+import { VirtusToggleModule } from "virtus-ui";
 
 @NgModule({
   imports: [
@@ -388,5 +384,3 @@ Virtus UI Components is licensed under the [MIT License](./LICENSE.md).
 For further details, enhancements, or issues, please check our [official documentation](#) or raise an issue in our [GitHub repository](#).
 
 ---
-
-I hope this provides a clear documentation structure for your components. You might want to replace placeholder paths (`path-to-*`) and URLs (`#`) with actual paths and URLs as necessary.
