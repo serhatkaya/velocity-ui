@@ -46,10 +46,6 @@ yarn add virtus-ui
 
 ---
 
-Sure! Here's your HTML content converted to Markdown:
-
----
-
 ## Sidebar Component
 
 The `VirtusSidebar` component acts as a side navigation bar for your application, providing an area where additional content can be placed. Sidebars are common in modern web applications and websites, especially those that have a large amount of nested content or require secondary navigation.
