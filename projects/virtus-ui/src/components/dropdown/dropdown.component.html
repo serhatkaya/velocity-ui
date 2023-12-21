@@ -2,7 +2,7 @@
 <div
   class="dropdown"
   [class.open]="isOpen"
-  (outerClick)="isOpen && onOuterClick($event)"
+  (vuiOuterClick)="isOpen && onOuterClick($event)"
   (mouseenter)="onEnterStream.emit()"
   (mouseleave)="onLeaveStream.emit()"
 >

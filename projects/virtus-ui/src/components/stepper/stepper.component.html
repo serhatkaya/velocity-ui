@@ -1,15 +1,32 @@
 <div class="stepper-container">
-  <ul class="stepper">
+  <ul class="stepper-header" *ngIf="renderHeader; else customHeader">
     <li
+      class="step-header"
       *ngFor="let step of steps; let i = index"
       [ngClass]="{
         active: i === activeStepIndex,
         complete: i < activeStepIndex
       }"
     >
-      {{ step.title }}
+      <span *ngIf="showStepNumber" class="step-number">{{ i + 1 }}</span>
+      <span class="step-title">
+        {{
+          {
+            showOnlyActiveStepTitle: showOnlyActiveStepTitle,
+            title: step.title,
+            index: i,
+            activeStepIndex: activeStepIndex
+          } | vuiStepTitle
+        }}
+      </span>
     </li>
   </ul>
+
+  <ng-template #customHeader>
+    <div class="stepper-header">
+      <ng-content select="[step-header]"></ng-content>
+    </div>
+  </ng-template>
 
   <div class="step-content">
     <ng-content></ng-content>

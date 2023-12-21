@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
     <div class="toast" [class]="typeClass" [ngClass]="positionClass">
       <div class="toast-header">
         <div class="toast-title">{{ title }}</div>
-        <button class="toast-close-button" (click)="closeToast()">X</button>
+        <button class="toast-close-button" (click)="clearToast()">X</button>
       </div>
       <div class="toast-message">{{ message }}</div>
     </div>
@@ -26,5 +26,5 @@ export class VirtusToastComponent {
     return `toast-${this.position}`;
   }
 
-  public closeToast() {}
+  public clearToast() {}
 }

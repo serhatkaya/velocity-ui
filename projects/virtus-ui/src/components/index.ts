@@ -49,3 +49,4 @@ export * from './toggle/toggle.module';
 export * from './stepper/stepper.module';
 export * from './stepper/step/step.component';
 export * from './stepper/stepper.component';
+export * from './stepper/step-title.pipe';

@@ -163,7 +163,12 @@
       </div>
 
       <div class="stepper-test">
-        <vui-stepper #stepper>
+        <vui-stepper
+          #stepper
+          [showStepNumber]="true"
+          [showOnlyActiveStepTitle]="true"
+          [navigation]="true"
+        >
           <vui-step title="Step 1" #step1>
             <div>Step 1 Content</div>
             <button class="vui-btn vui-btn-secondary" (click)="step1.goBack()">
@@ -194,6 +199,24 @@
             </button>
           </vui-step>
         </vui-stepper>
+      </div>
+
+      <div class="toast-messages">
+        <button class="vui-btn vui-btn-danger" (click)="toastMsg('error')">
+          Show Error Toast
+        </button>
+        <button class="vui-btn vui-btn-success" (click)="toastMsg('success')">
+          Show Success Toast
+        </button>
+        <button class="vui-btn vui-btn-warning" (click)="toastMsg('warning')">
+          Show Warning Toast
+        </button>
+        <button class="vui-btn vui-btn-info" (click)="toastMsg('info')">
+          Show Info Toast
+        </button>
+        <div class="vui-btn vui-btn-danger" (click)="closeAllToasts()">
+          Close All Toasts
+        </div>
       </div>
     </div>
   </div>

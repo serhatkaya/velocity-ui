@@ -1,4 +1,4 @@
-import { Component, ContentChildren, QueryList } from '@angular/core';
+import { Component, ContentChildren, Input, QueryList } from '@angular/core';
 import { tabAnimation } from '../../animations/tabAnimation';
 import { VirtusTabComponent } from './tab/tab.component';
 
@@ -8,6 +8,7 @@ import { VirtusTabComponent } from './tab/tab.component';
   animations: [tabAnimation],
 })
 export class VirtusTabsComponent {
+  @Input() isAnimated: boolean = true;
   @ContentChildren(VirtusTabComponent)
   tabs!: QueryList<VirtusTabComponent>;
   currentTab = 0;

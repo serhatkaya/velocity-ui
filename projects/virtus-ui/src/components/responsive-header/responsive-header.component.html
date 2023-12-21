@@ -10,7 +10,7 @@
   <div
     class="header-content"
     [ngClass]="{ show: isMenuOpen }"
-    (outerClick)="isMenuOpen && onOuterClick($event)"
+    (vuiOuterClick)="isMenuOpen && onOuterClick($event)"
   >
     <ng-content></ng-content>
   </div>

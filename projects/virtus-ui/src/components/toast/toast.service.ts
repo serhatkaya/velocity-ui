@@ -2,6 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import {
   ApplicationRef,
   ComponentFactoryResolver,
+  ComponentRef,
   EmbeddedViewRef,
   Inject,
   Injectable,
@@ -17,6 +18,7 @@ import { VirtusToastComponent } from './toast.component';
   providedIn: 'root',
 })
 export class VirtusToastService {
+  protected toastRefs: ComponentRef<VirtusToastComponent>[] = [];
   constructor(
     @Inject(DOCUMENT) protected document: Document,
     protected componentFactoryResolver: ComponentFactoryResolver,
@@ -24,7 +26,7 @@ export class VirtusToastService {
     protected injector: Injector
   ) {}
 
-  show(
+  public show(
     title: string,
     message: string,
     options: {
@@ -45,14 +47,14 @@ export class VirtusToastService {
       );
 
     const componentRef = componentFactory.create(this.injector);
-    const closeToast$ = (timeOut: number = 0) =>
+    const clearToast$ = (timeOut: number = 0) =>
       timer(timeOut).pipe(
         tap(() => {
           componentRef.location.nativeElement.children[0].classList.remove(
             'visible'
           );
         }),
-        switchMap(() => timer(300)),
+        switchMap(() => timer(timeOut)),
         take(1),
         tap(() => {
           this.appRef.detachView(componentRef.hostView);
@@ -63,13 +65,12 @@ export class VirtusToastService {
     const openToast$ = timer(0).pipe(
       take(1),
       tap(() => {
-        componentRef.location.nativeElement.children[0].classList.add(
+        componentRef.location.nativeElement.children[0]?.classList.add(
           'visible'
         );
 
-        if (afterOpen) {
-          afterOpen();
-        }
+        afterOpen && afterOpen();
+        this.toastRefs.push(componentRef);
       })
     );
 
@@ -77,9 +78,7 @@ export class VirtusToastService {
     componentRef.instance.message = message;
     componentRef.instance.type = type;
     componentRef.instance.position = position;
-    componentRef.instance.closeToast = () => {
-      closeToast$().subscribe();
-    };
+    componentRef.instance.clearToast = () => clearToast$().subscribe();
 
     this.appRef.attachView(componentRef.hostView);
     const domElem = (componentRef.hostView as EmbeddedViewRef<any>)
@@ -89,14 +88,17 @@ export class VirtusToastService {
 
     openToast$.subscribe();
 
-    // Close toast if has timeout
-    if (timeOut && timeOut > 0) {
-      closeToast$(timeOut).subscribe();
-    }
+    // clear toast if has timeout
+    timeOut && clearToast$(timeOut).subscribe();
+
     return {
-      hide: () => {
-        closeToast$().subscribe();
+      clear: (timer: number = 0): void => {
+        clearToast$(timer).subscribe();
       },
     };
+  }
+
+  public clearAll(): void {
+    this.toastRefs.forEach((toast) => toast.instance.clearToast());
   }
 }

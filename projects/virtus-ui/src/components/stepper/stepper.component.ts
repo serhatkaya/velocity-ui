@@ -16,6 +16,10 @@ export class VirtusStepperComponent implements AfterContentInit {
   protected destroy$ = new Subject();
   @Input() navigation: boolean = true;
   @Input() enableGoBack: boolean = true;
+  @Input() showOnlyActiveStepTitle: boolean = false;
+  @Input() showStepNumber: boolean = false;
+  @Input() stepNumberDelimiter: string = '-';
+  @Input() renderHeader: boolean = true;
   @ContentChildren(VirtusStepComponent)
   steps!: QueryList<VirtusStepComponent>;
 
@@ -79,5 +83,9 @@ export class VirtusStepperComponent implements AfterContentInit {
     }
 
     this.activeStepIndex = stepsArr.findIndex((x) => x.id === id);
+  }
+
+  public getCurrentStep() {
+    return this.steps.toArray()[this.activeStepIndex];
   }
 }

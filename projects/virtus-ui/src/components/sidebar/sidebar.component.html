@@ -4,7 +4,7 @@
     <div
       *ngIf="isOpen$ | vuiDelay : 100 | async"
       style="display: none"
-      (outerClick)="onOuterClick($event)"
+      (vuiOuterClick)="onOuterClick($event)"
     ></div>
     <div class="sidebar-header">
       <ng-container *ngIf="!customHeader">

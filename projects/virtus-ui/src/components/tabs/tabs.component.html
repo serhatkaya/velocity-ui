@@ -12,7 +12,7 @@
     </ng-container>
   </div>
 
-  <div class="tab-content" [@tabAnimation]="currentTab">
+  <div class="tab-content" [@tabAnimation]="isAnimated ? currentTab : false">
     <ng-content></ng-content>
   </div>
 </div>
